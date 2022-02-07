@@ -1,0 +1,105 @@
+package rs.com.beginner.test;
+
+import org.junit.jupiter.api.Test;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+public class TestWebApp {
+
+    @Test
+    public void testTC1() {
+        System.setProperty("webdriver.chrome.driver", "chromedriver.exe");
+        WebDriver driver = new ChromeDriver();
+
+        // 2.Open URL https://www.godaddy.com/
+        driver.get("https://www.godaddy.com/");
+
+        // 3.Maximize browser window.
+        driver.manage().window().maximize();
+
+        try { Thread.sleep(2000); } catch (Exception e) { }
+
+        // 4.Close browser
+        driver.close();
+        driver.quit();
+    }
+
+    @Test
+    public void testTC2() {
+        System.setProperty("webdriver.chrome.drive", "chromedriver.exe");
+        WebDriver driver = new ChromeDriver();
+
+        driver.get("https://www.godaddy.com/");
+        driver.manage().window().maximize();
+
+        String title = driver.getTitle();
+        System.out.println(title);
+
+        String pageSource = driver.getPageSource();
+        System.out.println(pageSource);
+    }
+
+    @Test
+    public void testTC3() {
+        System.setProperty("webdriver.chrome.drive", "chromedriver.exe");
+        WebDriver driver = new ChromeDriver();
+
+        driver.get("https://www.godaddy.com/");
+        driver.manage().window().maximize();
+
+        try { Thread.sleep(1000); } catch (Exception e) { }
+
+        //4. Click “Sign in”.
+        driver.findElement(By.xpath("//*[@id=\"id-68aad88a-f732-425d-b4c3-d14407a0aa2a\"]/summary/span[2]")).click();
+
+        try { Thread.sleep(1000); } catch (Exception e) { }
+
+        //5. Select “Create an Account” from a dropdown.
+        driver.findElement(By.xpath("(//a[normalize-space()='Create an Account'])[1]")).click();
+
+        try { Thread.sleep(1000); } catch (Exception e) { }
+
+        //6. Validate all elements of registration page.
+
+    }
+
+    @Test
+    public void testTC4(){
+        System.setProperty("webdriver.chrome.driver", "chromedriver.exe");
+        WebDriver driver = new ChromeDriver();
+
+        driver.get("https://calendly.com/");
+        driver.manage().window().maximize();
+
+        try { Thread.sleep(1000); } catch (Exception e) { }
+
+        //4. Click “Sign up".
+        driver.findElement(By.xpath("//*[@id=\"Homepage-Hero\"]/div/div/div[1]/form/div[2]/button")).click();
+
+        try { Thread.sleep(1000); } catch (Exception e) { }
+
+        //5. Enter email address you want to use
+        driver.findElement(By.xpath("//*[@id=\"Homepage-Hero\"]/div/div/div[1]/form/div[1]/input")).sendKeys("mdj23best@yahoo.com");
+
+        try { Thread.sleep(1000); } catch (Exception e) { }
+
+        //6. Click "Sign up" button
+        driver.findElement(By.xpath("//*[@id=\"Homepage-Hero\"]/div/div/div[1]/form/div[2]/button")).click();
+
+        try { Thread.sleep(1000); } catch (Exception e) { }
+
+        //7. Enter your name
+        driver.findElement(By.cssSelector("#name")).sendKeys("Milija Djordjevic");
+
+        try { Thread.sleep(1000); } catch (Exception e) { }
+
+        //8. Enter your password
+        driver.findElement(By.cssSelector("#password")).sendKeys("1234567891");
+
+        try { Thread.sleep(1000); } catch (Exception e) { }
+
+        //
+        driver.findElement(By.xpath("//*[@id=\"main-region\"]/div/div[1]/div/div/div/div/div/div[1]/form/div[4]/input")).click();
+    }
+}
